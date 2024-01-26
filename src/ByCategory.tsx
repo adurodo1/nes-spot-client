@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import "./App.css";
 import {
   getStyling,
@@ -51,7 +51,7 @@ function Category({ urlParam }: any) {
     Promise.all([xslsheet, xmldata]).then(async (c) => {
       //text() is asynchronous ensure that transformation is done
       const pr = () =>
-        new Promise<any>(async (res: any, rej) => {
+        new Promise<any>(async (res: any) => {
           let tempxsl = await c[0].text();
           let xslnode: any = parseStringToXMLNode(tempxsl);
           let tempxml = await c[1].text();
